@@ -69,7 +69,7 @@ func setMode(mode):
 		deviceID.select(1)	
 		optionButton.clear()	
 		for i in range(InputBind.JOY_AXIS_NAME.size()):
-			optionButton.add_item(str('axis:',i,' ',InputBind.JOY_AXIS_NAME[i]),i)
+			optionButton.add_item(str('axis:',i/ 2,' ',InputBind.JOY_AXIS_NAME[i]),i)
 	self.mode=mode			
 
 
@@ -100,6 +100,7 @@ func _on_eventDialog_confirmed():
 		InputBind.emit_signal("setEvent",useEvent)
 	elif mode==	InputTypes.JOY_AXIS:		
 		useEvent=InputEventJoypadMotion.new()
+		useEvent.device=deviceID.get_selected_id()
 		useEvent.axis=optionButton.get_selected_id()/ 2
 		useEvent.axis_value=-1.0 if optionButton.get_selected_id() % 2 == 0 else 1.0
 		InputBind.emit_signal("setEvent",useEvent)
