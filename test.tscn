@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://test.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://addons/InputBind/Inputscene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/InputBind/theme/panel/popup.tres" type="StyleBox" id=4]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,14 +20,46 @@ margin_bottom = 62.0
 text = "input"
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
-margin_right = 1013.0
-margin_bottom = 455.0
+margin_left = 152.0
+margin_top = 120.0
+margin_right = 872.0
+margin_bottom = 496.0
+custom_styles/panel = ExtResource( 4 )
 
-[node name="Control" parent="PopupPanel" instance=ExtResource( 3 )]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 1009.0
-margin_bottom = 451.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 718.0
+margin_bottom = 374.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="PopupPanel/VBoxContainer"]
+margin_top = 9.0
+margin_right = 716.0
+margin_bottom = 23.0
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.1
+text = "Actions"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupPanel/VBoxContainer"]
+margin_top = 37.0
+margin_right = 716.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Control" parent="PopupPanel/VBoxContainer/MarginContainer" instance=ExtResource( 3 )]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 706.0
+margin_bottom = 325.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

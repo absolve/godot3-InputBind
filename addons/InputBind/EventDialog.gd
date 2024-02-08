@@ -76,6 +76,7 @@ func setMode(mode):
 func _on_eventDialog_about_to_show():
 	useEvent=null
 	if mode==InputTypes.KEYBOARD:
+		lineEdit.text=''
 		set_process_input(true)
 
 

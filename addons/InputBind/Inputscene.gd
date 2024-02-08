@@ -1,4 +1,4 @@
-extends Control
+extends VBoxContainer
 
 var action=preload("res://addons/InputBind/action.tscn")
 onready var actions=$MarginContainer/VBoxContainer/ScrollContainer/actions
@@ -38,7 +38,9 @@ func setEvent(useEvent:InputEvent):
 
 
 func _on_default_pressed():
-	pass
+	InputMap.load_from_globals()
+	for i in actions.get_children():
+		i.reset()
 
 
 func _on_PopupMenu_id_pressed(id):

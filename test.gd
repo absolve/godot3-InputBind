@@ -22,7 +22,7 @@ func _process(delta):
 		vec=Vector2.RIGHT
 	if Input.is_action_pressed("move_left"):
 		vec=Vector2.LEFT	
-		
+	
 	sprite.position+=vec*speed*delta
 	pass
 
